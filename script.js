@@ -1,5 +1,5 @@
-let spinnerLoader = document.querySelector('#loader')
-let mainDiv = document.querySelector('#main-loader')
+let spinnerLoader = document.querySelector ('#loader')
+let mainDiv = document.querySelector ('#main-loader')
 
 const imagemPersonagem1 = document.querySelector('#personagem-imagem-1');
 const imagemPersonagem2 = document.querySelector('#personagem-imagem-2');
@@ -18,28 +18,27 @@ let contadorImagensResolvidas = 0;
 gerarPersonagensAleatorio = () => {
     return Math.floor(Math.random() * numeroMaximoDePersonagens);
 }
-pegarPersonagens = (imgElement, nameElement) => {
+pegarPersonagens = (imgElement, nameElement) =>{
 
     console.log('ids dos personagens', idsPersonagens);
 
-    fetch(`https://rickandmortyapi.com/api/character/${idsPersonagens.pop()}`, {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                "content-Type": 'application/json'
-            }
-        }).then((response) => response.json())
-        .then((response) => {
-            contadorImagensResolvidas++;
-            imgElement.src = response.image;
-            nameElement.innerText = response.name;
-            if (contadorImagensResolvidas == 4) {
-                setTimeout(() => {
-                    spinnerLoader.style.display = "none";
-                    mainDiv.style.display = "flex";
-                }, 1000);
-            }
-        });
+    fetch(`https://rickandmortyapi.com/api/character/${idsPersonagens.pop()}`,{
+        method:'GET',
+        headers: {
+            accept: 'application/json', "content-Type" : 'application/json'
+        }
+    }).then((response) => response.json())
+    .then((response) => {
+        contadorImagensResolvidas++;
+        imgElement.src = response.image;
+        nameElement.innerText = response.name;
+        if (contadorImagensResolvidas == 4) {
+            setTimeout(() => { 
+                spinnerLoader.style.display = "none";
+                mainDiv.style.display = "flex";
+            }, 1000);
+        }
+    });
 }
 gerarIds = () => {
 
