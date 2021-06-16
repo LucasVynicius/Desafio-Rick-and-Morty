@@ -1,5 +1,5 @@
-let spinnerLoader = document.querySelector ('#loader')
-let mainDiv = document.querySelector ('#main-loader')
+let spinnerLoader = document.querySelector ('#loader');
+let mainDiv = document.querySelector ('#main-loader');
 
 const imagemPersonagem1 = document.querySelector('#personagem-imagem-1');
 const imagemPersonagem2 = document.querySelector('#personagem-imagem-2');
